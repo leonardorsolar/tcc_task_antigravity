@@ -37,7 +37,7 @@ npx @vudovn/ag-kit init
 
 APÓS INSTALADO: abrir e fechar A IDE
 
-Tasks:
+Task_01:
 1- Setup Inicial do Repositório: modo planning-> Adicionar o prompt Task_01.md
 2- Revisar o plano da tasks
 3- Proceed o plano criado: Implementation Plan - Setup Inicial do Repositório
@@ -47,5 +47,15 @@ Tasks:
 7- Proceed o plano criado: Implementation Plan - Testing Setup & Health Check
 8- testar: npm run test
 9- testar o TestSprite: TestSprite Hey, help me to test this project with TestSprite.
+10 git add .
+11 git commit -m "Setup Inicial do Repositório"
+12 git push ...
+13 Adicionar o sonarcloud no github https://sonarcloud.io/login (logar com o github)
+
+- analyzer new project > Select all on this page (tcc_task_antigravity) > Set up > Number of days > create project
+
+Seguir para a proxima task.
+
+Task_02:
 
 Seguir para a proxima task.
