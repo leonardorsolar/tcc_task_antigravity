@@ -28,7 +28,7 @@ npx @vudovn/ag-kit init
             "command": "npx",
             "args": ["-y", "@testsprite/testsprite-mcp@latest"],
             "env": {
-                "API_KEY": "sk-user-wNEQR9bKvZXdJdyAKo6Pf_UzdghYb9Tm18Vm-K32h2zJrKjbMiFItYaUWG0otUuXj_c7dtRXZSpqpPykUJfSvnH9TpjQR-ah6hwtVD8EYsMcgCoRdviBR_dB73YMG-GPFvo"
+                "API_KEY": "sk-user-wNEQR9bKvZXdJdyAKo6Pf...vo"
             }
         }
     }
@@ -68,9 +68,78 @@ configurar o SonarCloud via GitHub Actions (Continuons integration)
 5- Arquivo .coderabbit.yaml
 6- no prompt: @coderabbitai review
 7- git checkout -b test/coderabbit > git push origin test/coderabbit
+8- instalar a extensão
 
 Seguir para a proxima task.
+
+# Workflow de Desenvolvimento
+
+Ótimo — seu fluxo está **conceitualmente certo**, só estava:
+
+- Fora de ordem em alguns pontos
+- Com numeração duplicada
+- Com o TestSprite em uma posição que não reflete bem o papel dele
+- Com pequenas correções de linguagem
+
+Vou te devolver uma versão **corrigida, organizada e resumida**, com o **TestSprite no lugar mais lógico**, mantendo o modelo de agentes + CI.
+
+Você pode copiar e colar:
+
+---
+
+# Workflow de Desenvolvimento (Ajustado)
+
+Como funciona o processo de desenvolvimento:
+
+1. **Criação de Branch**
+   Uma branch é criada para a nova feature ou correção.
+
+2. **Criação do Prompt da Issue**
+   Definição do prompt e contexto da tarefa.
+
+3. **Criação do Plano da Issue**
+   O agente gera o plano, que é revisado e aprovado.
+
+4. **Execução do Plano (Implementação)**
+   O agente implementa a funcionalidade conforme o plano.
+
+5. **Revisão Manual do Código Gerado**
+   O desenvolvedor revisa o código implementado.
+
+6. **Testes Manuais**
+   Validação manual básica da funcionalidade.
+
+7. **Criação de Testes Automatizados da Feature**
+   Desenvolvimento de testes unitários e/ou de integração.
+
+8. **Execução de Testes Automatizados (Local)**
+   Testes automatizados validam o comportamento da aplicação.
+
+9. **Commit Local**
+   Código aprovado localmente:
+   `git add .` → `git commit`
+
+10. **Abertura de Pull Request (PR)**
+    O código é submetido para revisão via Pull Request.
+
+11. **Revisão Automatizada (CodeRabbit)**
+    O CodeRabbit analisa o PR (arquitetura, segurança, boas práticas, testes).
+
+12. **CI (GitHub Actions)**
+    O pipeline executa build, testes e validações automatizadas.
+
+13. **Análise Estática (SonarCloud)**
+    O SonarCloud avalia métricas de qualidade, bugs, vulnerabilidades e hotspots.
+
+14. **Execução de Testes via TestSprite (MCP)**
+    O TestSprite executa e orquestra cenários automatizados de teste no contexto do PR/CI.
+
+15. **Quality Gates**
+    O merge só é permitido se CodeRabbit, SonarCloud, TestSprite e testes estiverem aprovados.
+
+16. **Merge no Branch Principal**
+    Após aprovação, o código é integrado ao branch principal.
 
 Task_02:
 
-Seguir para a proxima task.
+Seguir para a próxima task.
