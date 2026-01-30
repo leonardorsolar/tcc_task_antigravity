@@ -60,6 +60,12 @@ configurar o SonarCloud via GitHub Actions (Continuons integration)
 - 3-Escolher o tipo do projeto> Js/ts > crie.github/workflows/build.yml > crie sonar-project.properties
 - 4 Security Hotspots>review se for o caso, corrigir e subir novamente > Safe (quando é falso positivo)
 
+14- coderrabit (revisar o codigo): https://app.coderabbit.ai/login
+1-login com github
+2- add repository
+3- github > Only select repositories > tcc_task_antigravity
+4-Vá para o GitHub Marketplace (ou via dashboard do CodeRabbit) > Procure por CodeRabbit > Clique em Install
+
 Seguir para a proxima task.
 
 Task_02:
