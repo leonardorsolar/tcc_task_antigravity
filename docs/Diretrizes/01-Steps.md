@@ -65,6 +65,9 @@ configurar o SonarCloud via GitHub Actions (Continuons integration)
 2- add repository
 3- github > Only select repositories > tcc_task_antigravity
 4-Vá para o GitHub Marketplace (ou via dashboard do CodeRabbit) > Procure por CodeRabbit > Clique em Install
+5- Arquivo .coderabbit.yaml
+6- no prompt: @coderabbitai review
+7- git checkout -b test/coderabbit > git push origin test/coderabbit
 
 Seguir para a proxima task.
 
