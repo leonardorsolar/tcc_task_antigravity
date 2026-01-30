@@ -230,14 +230,20 @@ Como funciona o processo de desenvolvimento:
         - ✅ Quality gates satisfeitos
 
         7.2 Merge Strategy
-        - Squash and merge (recomendado)
-        - Rebase and merge
-        - Merge commit
+        - Fazer o Merge: Clique no botão "Merge pull request" na interface do GitHub
+        - Ma máquina local:
+            - Voltar para a branch principal:git checkout main
+            - Atualizar a branch main com as mudanças do GitHub:git pull origin main (Buscar e mergear mudanças do remote)
+            - Deletar a branch local (safe delete): git branch -d fix/coderabbit-config
+            - Verificar o status: git status, git branch -a e git log --oneline -5
+        (Squash and merge (recomendado), Rebase and merge, Merge commit)
 
         7.3 Pós-Merge
-        - Atualizar main/develop
-        - Deletar branch da feature
-        - Verificar deploy automático
+        - Deletar a branch local: git branch -d fix/coderabbit-config
+        - Deletar a branch remota: git push origin --delete fix/coderabbit-config
+        - Voltar para main/develop: git checkout main > git pull origin main
+        - Verificar se o deploy automático funcionou (se houver)
+        - Confirmar que a issue relacionada foi fechada
         - Monitorar logs/métricas
 
 ### Métricas de Sucesso:
