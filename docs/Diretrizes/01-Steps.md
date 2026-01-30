@@ -58,6 +58,7 @@ configurar o SonarCloud via GitHub Actions (Continuons integration)
 - 1-Desabilitar Automatic Analysis
 - 2-github Actions secrets and variables > new repository secret > Name = SONAR_TOKEN e Value = > add secret
 - 3-Escolher o tipo do projeto> Js/ts > crie.github/workflows/build.yml > crie sonar-project.properties
+- 4 Security Hotspots>review se for o caso, corrigir e subir novamente > Safe (quando é falso positivo)
 
 Seguir para a proxima task.
 
