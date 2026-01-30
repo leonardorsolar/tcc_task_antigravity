@@ -11,7 +11,7 @@ app.get("/health", (req, res) => {
     res.json({ status: "ok" })
 })
 
-// Rota só pra testar erro global
+// Route only for testing global error handling
 app.get("/error", (req, res) => {
     throw new Error("Forced error for testing")
 })

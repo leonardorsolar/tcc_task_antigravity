@@ -3,7 +3,6 @@ review:
     target_branches:
         - main
 
-    # Evitar nitpicks chatos
     block_on:
         - security
         - tests-missing

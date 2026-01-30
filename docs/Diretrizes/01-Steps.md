@@ -111,55 +111,143 @@ Você pode copiar e colar:
 
 Como funciona o processo de desenvolvimento:
 
-1. **Criação de Branch**
-   Uma branch é criada para a nova feature ou correção.
+1.  **Criação de Branch**
+    Uma branch é criada (a partir da main/develop) para a nova feature ou correção.
+    git checkout -b feature/nome-da-feature
+    git checkout -b fix/nome-do-bug
 
-2. **Criação do Prompt da Issue**
-   Definição do prompt e contexto da tarefa.
+2.  **Definição da Issue**
 
-3. **Criação do Plano da Issue**
-   O agente gera o plano, que é revisado e aprovado.
+    2.1 Criação do Prompt da Issue
+    Descrever claramente o problema/feature
+    Definição do prompt e contexto da tarefa.
 
-4. **Execução do Plano (Implementação)**
-   O agente implementa a funcionalidade conforme o plano.
+    2.2 Geração do Plano (Agent/Dev)
+    O agente gera o plano.
+    Revisar e ajustar o plano antes de prosseguir
 
-5. **Revisão Manual do Código Gerado**
-   O desenvolvedor revisa o código implementado.
+3.  **Implementação**
 
-6. **Testes Manuais**
-   Validação manual básica da funcionalidade.
+    O agente implementa a funcionalidade conforme o plano.
 
-7. **Criação de Testes Automatizados da Feature**
-   Desenvolvimento de testes unitários e/ou de integração.
+    3.1 Execução do Plano
+    Desenvolvimento assistido por IA seguindo o plano aprovado
 
-8. **Execução de Testes Automatizados (Local)**
-   Testes automatizados validam o comportamento da aplicação.
-   npm test -- --coverage
+    3.2 Revisão Manual Local do Código
+    Leitura crítica do código gerado.
+    Checklist:
+    - Código legível e bem estruturado
+    - Nomenclaturas seguem padrões do projeto
+    - Lógica está clara e coesa
+    - Sem código comentado ou debug logs
+    - Tratamento de erros adequado
 
-9. **Commit Local**
-   Código aprovado localmente:
-   `git add .` → `git commit`
+        3.2 Commits Semânticos
+        `git add .`
+        `git commit -m "feat: adiciona validação de email no formulário"`
+        `git push origin feature/nome-da-feature`
+        Conventional Commits (feat, fix, docs, refactor, test, etc.)
 
-10. **Abertura de Pull Request (PR)**
-    O código é submetido para revisão via Pull Request.
+4.  **Validação (Testes)**
 
-11. **Revisão Automatizada (CodeRabbit)**
-    O CodeRabbit analisa o PR (arquitetura, segurança, boas práticas, testes).
+    4.1 Testes Manuais
+    Validação manual básica da funcionalidade.
 
-12. **CI (GitHub Actions)**
-    O pipeline executa build, testes e validações automatizadas.
+    4.2 Testes Automatizados da Feature
+    Criação/ajuste de testes:
+    - Testes unitários (funções, componentes isolados)
+    - Testes de integração (fluxos completos)
+    - Testes E2E (se aplicável)
 
-13. **Análise Estática (SonarCloud)**
-    O SonarCloud avalia métricas de qualidade, bugs, vulnerabilidades e hotspots.
+        4.3 Execução Local
+        Testes automatizados validam o comportamento da aplicação.
+        npm test -- --coverage
+        Meta mínima: 80% de cobertura nas áreas modificadas
 
-14. **Execução de Testes via TestSprite (MCP)**
-    O TestSprite executa e orquestra cenários automatizados de teste no contexto do PR/CI.
+        4.4 Execução de Testes via TestSprite (MCP)
+        O TestSprite executa e orquestra cenários automatizados de teste
+        Validar: Casos de uso complexos e regressões
 
-15. **Quality Gates**
-    O merge só é permitido se CodeRabbit, SonarCloud, TestSprite e testes estiverem aprovados.
+        4.4 Commits pequenos e semânticos.
+        `git add .` → `git commit -m "test:..."` → `git push`
 
-16. **Merge no Branch Principal**
-    Após aprovação, o código é integrado ao branch principal.
+5.  **Code Review**
+
+        5.1 Abertura de Pull Request (PR)
+        O código é submetido para revisão via Pull Request.
+        ex.: Template do PR: Título do PR ## Contexto ## Alterações ## Como testar ## Lista de verificação
+
+        5.2 Análise do Diff
+        Visualizar as mudanças (diff) -> Revisão manual do código gerado.
+
+        5.3 Revisão Automatizada (CodeRabbit)
+        O CodeRabbit analisa o PR (Padrões arquiteturais, Vulnerabilidades de segurança, Code smells e anti-patterns, Qualidade de testes).
+        Responder aos comentários e ajustar código
+
+        5.4 CI (GitHub Actions)
+        O pipeline executa:
+        - Build do projeto
+        - Linting (ESLint, Pylint, etc.)
+        - Testes automatizados
+        - Verificação de cobertura
+        - Validações de segurança
+
+        5.5 Análise Estática (SonarCloud)
+        Métricas analisadas:
+        - Bugs potenciais
+        - Vulnerabilidades
+        - Code smells
+        - Duplicação de código
+        - Complexidade ciclomática
+        - Cobertura de testes
+
+6.  **Quality Gates**
+
+    6.1 Condições de Merge
+    Merge bloqueado se qualquer check falhar.
+    O merge só é permitido se CodeRabbit, SonarCloud e testes estiverem aprovados.
+    Bloqueios automáticos se:
+    - ❌ Testes falhando
+    - ❌ Cobertura abaixo do threshold
+    - ❌ CodeRabbit com issues críticas
+    - ❌ SonarCloud Quality Gate failed
+    - ❌ Build quebrado
+    - ❌ Conflitos de merge não resolvidos
+
+        6.2 Correções Iterativas de apontamentos anteriores
+        Corrige na mesma branch
+        `git add .` → `git commit -m "fix: ..."` → `git push`
+
+        6.3 Repetir: Até todos os checks passarem ✅
+
+7.  **Integração**
+
+        7.1 Aprovação Final
+        Requisitos:
+        - ✅ Todos os checks passando
+        - ✅ Aprovação de pelo menos 1 revisor (se aplicável)
+        - ✅ Conflitos resolvidos
+        - ✅ Quality gates satisfeitos
+
+        7.2 Merge Strategy
+        - Squash and merge (recomendado)
+        - Rebase and merge
+        - Merge commit
+
+        7.3 Pós-Merge
+        - Atualizar main/develop
+        - Deletar branch da feature
+        - Verificar deploy automático
+        - Monitorar logs/métricas
+
+### Métricas de Sucesso:
+
+Lead Time: Tempo da issue até produção
+Cycle Time: Tempo de codificação até merge
+Deployment Frequency: Frequência de deploys
+Change Failure Rate: % de deploys com problemas
+Code Coverage: % de cobertura de testes
+Quality Gate Pass Rate: % de PRs aprovados no SonarCloud
 
 Task_02:
 
