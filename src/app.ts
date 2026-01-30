@@ -11,4 +11,17 @@ app.get("/health", (req, res) => {
     res.json({ status: "ok" })
 })
 
+// Global error handler (sempre por último)
+app.use(
+    (
+        err: Error,
+        req: express.Request,
+        res: express.Response,
+        next: express.NextFunction,
+    ) => {
+        console.error(err)
+        res.status(500).json({ error: "Internal Server Error" })
+    },
+)
+
 export { app }
