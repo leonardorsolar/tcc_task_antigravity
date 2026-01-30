@@ -1,0 +1,7 @@
+[
+  {
+    "id": "TC001",
+    "title": "health check api status",
+    "description": "Verify that the GET /health endpoint returns a 200 status code with a JSON response containing the status field set to 'ok', confirming the API is running and available."
+  }
+]

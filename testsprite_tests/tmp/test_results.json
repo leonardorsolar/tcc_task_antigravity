@@ -1,0 +1,16 @@
+[
+  {
+    "projectId": "ccf7cc1a-467a-43d5-9c07-286429c3f4b3",
+    "testId": "3bfa69ac-075d-41c2-9abb-1632e360408c",
+    "userId": "d4380438-5011-70fc-dbda-9c1714f5ef9f",
+    "title": "TC001-health check api status",
+    "description": "Verify that the GET /health endpoint returns a 200 status code with a JSON response containing the status field set to 'ok', confirming the API is running and available.",
+    "code": "import requests\n\ndef test_health_check_api_status():\n    base_url = \"http://localhost:3000\"\n    url = f\"{base_url}/health\"\n    headers = {\n        \"Accept\": \"application/json\"\n    }\n    try:\n        response = requests.get(url, headers=headers, timeout=30)\n        response.raise_for_status()\n        data = response.json()\n        assert response.status_code == 200, f\"Expected status code 200 but got {response.status_code}\"\n        assert isinstance(data, dict), \"Response is not a JSON object\"\n        assert \"status\" in data, \"'status' field missing in response JSON\"\n        assert data[\"status\"] == \"ok\", f\"Expected status to be 'ok' but got '{data['status']}'\"\n    except requests.RequestException as e:\n        assert False, f\"HTTP request failed: {e}\"\n    except ValueError:\n        assert False, \"Response content is not valid JSON\"\n\ntest_health_check_api_status()",
+    "testStatus": "PASSED",
+    "testError": "",
+    "testType": "BACKEND",
+    "createFrom": "mcp",
+    "created": "2026-01-30T00:48:48.499Z",
+    "modified": "2026-01-30T00:48:52.467Z"
+  }
+]
