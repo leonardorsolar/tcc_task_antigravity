@@ -7,7 +7,3 @@ review:
     block_on:
         - security
         - tests-missing
-
-comments:
-    inline: true
-    summary: true

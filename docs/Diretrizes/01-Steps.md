@@ -67,8 +67,28 @@ configurar o SonarCloud via GitHub Actions (Continuons integration)
 4-Vá para o GitHub Marketplace (ou via dashboard do CodeRabbit) > Procure por CodeRabbit > Clique em Install
 5- Arquivo .coderabbit.yaml
 6- no prompt: @coderabbitai review
-7- git checkout -b test/coderabbit > git push origin test/coderabbit
+7- git checkout -b test/coderabbit && git push origin test/coderabbit
 8- instalar a extensão
+
+obs.:
+
+### codeRabbit
+
+https://app.coderabbit.ai/settings/repositories
+
+codeRabbit: toda vez que fizer commit: O CodeRabbit detectará o seu commit e perguntará se você quer iniciar uma revisão. Mesmo antes do PR (dependendo da integração)
+Opção 1 — Fluxo correto com PR (mais profissional)
+Procedimento: Clique em No agora > Depois siga o fluxo padrão: git push origin feature... > Abra um Pull Request no GitHub >CodeRabbit vai rodar automaticamente no PR
+Opção 2 — Revisão local rápida (menos formal)
+Procedimento:Clique em Yes> Rodar uma revisão imediata> Não fica registrado no histórico do PR
+
+# TestSprite MCP Server:
+
+https://www.testsprite.com/dashboard/mcp/tests
+
+# sonarcloud:
+
+https://sonarcloud.io/project/
 
 Seguir para a proxima task.
 
