@@ -11,4 +11,25 @@ app.get("/health", (req, res) => {
     res.json({ status: "ok" })
 })
 
+// Rota só pra testar erro global
+app.get("/error", (req, res) => {
+    throw new Error("Forced error for testing")
+})
+
+// Global error handler
+export const errorHandler = (
+    err: Error,
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction,
+) => {
+    if (res.headersSent) {
+        return next(err)
+    }
+    console.error(err)
+    res.status(500).json({ error: "Internal Server Error" })
+}
+
+app.use(errorHandler)
+
 export { app }
