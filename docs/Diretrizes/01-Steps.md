@@ -51,8 +51,13 @@ Task_01:
 11 git commit -m "Setup Inicial do Repositório"
 12 git push ...
 13 Adicionar o sonarcloud no github https://sonarcloud.io/login (logar com o github)
+configurar o SonarCloud via GitHub Actions (Continuons integration)
 
 - analyzer new project > Select all on this page (tcc_task_antigravity) > Set up > Number of days > create project
+- Adminstration > Analysis Metthod > With GitHub Actions > Name = SONAR_TOKEN e Value =
+- 1-Desabilitar Automatic Analysis
+- 2-github Actions secrets and variables > new repository secret > Name = SONAR_TOKEN e Value = > add secret
+- 3-Escolher o tipo do projeto> Js/ts > crie.github/workflows/build.yml > crie sonar-project.properties
 
 Seguir para a proxima task.
 
