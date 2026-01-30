@@ -134,6 +134,7 @@ Como funciona o processo de desenvolvimento:
 
 8. **Execução de Testes Automatizados (Local)**
    Testes automatizados validam o comportamento da aplicação.
+   npm test -- --coverage
 
 9. **Commit Local**
    Código aprovado localmente:
