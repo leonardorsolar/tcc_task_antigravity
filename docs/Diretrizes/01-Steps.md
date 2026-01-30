@@ -229,14 +229,17 @@ Como funciona o processo de desenvolvimento:
         - ✅ Conflitos resolvidos
         - ✅ Quality gates satisfeitos
 
-        7.2 Merge Strategy
-        - Fazer o Merge: Clique no botão "Merge pull request" na interface do GitHub
-        - Ma máquina local:
+        7.2 Merge
+        - Fazer o Merge realizado no GitHub: Clique no botão "Merge pull request" na interface do GitHub
+        - Ma máquina local: Branch local sincronizada com main
             - Voltar para a branch principal:git checkout main
             - Atualizar a branch main com as mudanças do GitHub:git pull origin main (Buscar e mergear mudanças do remote)
-            - Deletar a branch local (safe delete): git branch -d fix/coderabbit-config
-            - Verificar o status: git status, git branch -a e git log --oneline -5
-        (Squash and merge (recomendado), Rebase and merge, Merge commit)
+            - Deletar a branch local (safe delete): git branch -d fix/coderabbit-config (Branch remota deletada)
+            - Verificar o status: git status, git branch -a e git log --oneline -5 (Repositório limpo e organizado)
+        Estado Atual do Repositório:
+         - main ← Você está aqui (branch local)
+         - remotes/origin/main ← Branch principal no GitHub
+        Merge Strategy: (Squash and merge (recomendado), Rebase and merge, Merge commit)
 
         7.3 Pós-Merge
         - Deletar a branch local: git branch -d fix/coderabbit-config

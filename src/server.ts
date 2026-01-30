@@ -1,5 +1,4 @@
 import { app } from "./app"
-//import "dotenv/config" se for usar .env
 
 const PORT = process.env.PORT || 3000
 
