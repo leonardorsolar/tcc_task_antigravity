@@ -43,6 +43,8 @@ Na página do projeto no SonarCloud, você verá o status da análise.
 - Lines of Code (Linhas de código)
 - Activity (Atividade)
 
+ver
+
 ---
 
 # Coderrabit
