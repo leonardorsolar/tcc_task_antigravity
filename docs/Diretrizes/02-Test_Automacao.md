@@ -36,7 +36,7 @@ Na página do projeto no SonarCloud, você verá o status da análise.
                     - Deprecated(Obsoleto)
                 - Fixed(Corrigido)
                     - Deprecated(Obsoleto)
-- Code Smells (Cheiros de código)
+- Code Smells (Cheiros de código): algo pode estar errado no design ou na estrutura, mesmo que o código funcione.
 - Security Hotspots (Pontos de atenção de segurança)
 - Coverage (Cobertura de testes)
 - Duplications (Duplicações)
