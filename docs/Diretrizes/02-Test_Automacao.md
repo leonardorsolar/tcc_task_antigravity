@@ -36,13 +36,17 @@ Na página do projeto no SonarCloud, você verá o status da análise.
                     - Deprecated(Obsoleto)
                 - Fixed(Corrigido)
                     - Deprecated(Obsoleto)
-
----
-
 - Code Smells (Cheiros de código)
 - Security Hotspots (Pontos de atenção de segurança)
 - Coverage (Cobertura de testes)
 - Duplications (Duplicações)
 - Lines of Code (Linhas de código)
 - Activity (Atividade)
-- Settings (Configurações)
+
+---
+
+# Coderrabit
+
+https://app.coderabbit.ai/login
+
+- git checkout -b test/coderabbit && git push origin test/coderabbit
