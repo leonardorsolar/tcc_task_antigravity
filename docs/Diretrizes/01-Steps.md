@@ -94,21 +94,6 @@ Seguir para a proxima task.
 
 # Workflow de Desenvolvimento
 
-Ótimo — seu fluxo está **conceitualmente certo**, só estava:
-
-- Fora de ordem em alguns pontos
-- Com numeração duplicada
-- Com o TestSprite em uma posição que não reflete bem o papel dele
-- Com pequenas correções de linguagem
-
-Vou te devolver uma versão **corrigida, organizada e resumida**, com o **TestSprite no lugar mais lógico**, mantendo o modelo de agentes + CI.
-
-Você pode copiar e colar:
-
----
-
-# Workflow de Desenvolvimento (Ajustado)
-
 Como funciona o processo de desenvolvimento:
 
 1.  **Criação de Branch**
