@@ -8,18 +8,8 @@ app.disable("x-powered-by")
 app.use(express.json())
 
 app.get("/health", (req, res) => {
-    console.log("Health check called") // CodeRabbit normalmente reclama
+    console.log("Health check called") // Comentários são ignorados pelo SonarCloud mas o CodeRabbit reclama
     res.json({ status: "ok" })
-})
-
-// Route only for testing global error handling
-app.get("/error", (req, res) => {
-    try {
-        throw new Error("Forced error")
-    } catch (e) {
-        // erro ignorado propositalmente
-    }
-    res.json({ ok: true })
 })
 
 // Global error handler
@@ -30,9 +20,9 @@ export const errorHandler = (
     res: express.Response,
     next: express.NextFunction,
 ) => {
-    // if (res.headersSent) {
-    //     return next(err)
-    // }
+    if (res.headersSent) {
+        return next(err)
+    }
     console.error(err)
     res.status(500).json({ error: "Internal Server Error" })
 }
