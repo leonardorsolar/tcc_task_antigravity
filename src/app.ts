@@ -29,7 +29,6 @@ export const createUser = async (
         throw "Email is required"
     }
 
-    // ❌ 2. Lógica de negócio no controller
     const alreadyExists = users.find((u) => u.email === user.email)
 
     if (!user.email) {
