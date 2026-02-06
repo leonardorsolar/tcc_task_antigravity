@@ -23,7 +23,17 @@ export const createUser = async (
     req: express.Request,
     res: express.Response,
 ) => {
-    const user = req.body as unknown as User
+    const { name, email } = req.body ?? {}
+
+    if (typeof name !== "string" || !name.trim()) {
+        return res.status(400).json({ error: "Name is required" })
+    }
+
+    if (typeof email !== "string" || !email.trim()) {
+        return res.status(400).json({ error: "Email is required" })
+    }
+
+    const user: User = { name: name.trim(), email: email.trim() }
 
     if (!user.email) {
         throw "Email is required"
