@@ -12,6 +12,24 @@ app.get("/health", (req, res) => {
     res.json({ status: "ok" })
 })
 
+interface User {
+    name: string
+    email: string
+}
+
+const users: User[] = []
+
+export const createUser = async (req: Request, res: Response) => {
+    const user = req.body as unknown as User
+
+    if (!user.email) {
+        throw "Email is required"
+    }
+
+    // ❌ 2. Lógica de negócio no controller
+    const alreadyExists = users.find((u) => u.email === user.email)
+}
+
 // Global error handler
 export const errorHandler = (
     //err: Error,
