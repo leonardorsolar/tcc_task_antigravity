@@ -1,8 +1,16 @@
-review:
-    auto_review: true
-    target_branches:
-        - main
+reviews:
+    auto: true
+    profile: assertive
+    tone: professional
+    high_level_summary: true
 
-    block_on:
-        - security
-        - tests-missing
+    branches:
+        include:
+            - main
+
+    instructions: |
+        Act as a senior software engineer.
+        Prefer unknown over any.
+        Flag security vulnerabilities and hotspots.
+        Highlight missing or insufficient tests.
+        Point out architectural issues and code smells.
