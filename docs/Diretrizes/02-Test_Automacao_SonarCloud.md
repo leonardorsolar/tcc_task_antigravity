@@ -7,6 +7,8 @@ Como usar:
 
 Git push: O SonarCloud roda automaticamente
 
+Pull Request: O SonarCloud registra o PR e roda automaticamente.
+
 Na página do projeto no SonarCloud, você verá o status da análise.
 
 1. Overview (Visão geral)
@@ -43,12 +45,48 @@ Na página do projeto no SonarCloud, você verá o status da análise.
 - Lines of Code (Linhas de código)
 - Activity (Atividade)
 
-ver
-
 ---
 
-# Coderrabit
+# SonarCloud:
 
-https://app.coderabbit.ai/login
+**Overall Code** é a fotografia da saúde total do código;
 
-- git checkout -b test/coderabbit && git push origin test/coderabbit
+**New Code** é o que define se você está indo na direção certa.
+
+## 🧭 O que é “Overall Code”
+
+**Overall Code = estado geral da base de código inteira**
+
+## 📊 O que entra no Overall Code
+
+No Overview, o Overall Code normalmente agrega métricas como:
+
+### 🐞 Bugs
+
+Problemas que podem causar comportamento incorreto em produção.
+
+### 🔐 Vulnerabilities
+
+Falhas de segurança reais ou potenciais.
+
+### 💣 Security Hotspots
+
+Trechos que **podem** ser inseguros e precisam de revisão humana.
+
+### 🧹 Code Smells
+
+Problemas de manutenibilidade (complexidade alta, duplicação, etc).
+
+### 📐 Maintainability Rating
+
+Quão fácil é manter o código (A → E).
+
+### 🧪 Coverage
+
+Cobertura de testes **do projeto inteiro**.
+
+### 📦 Duplications
+
+Percentual de código duplicado no total.
+
+---
