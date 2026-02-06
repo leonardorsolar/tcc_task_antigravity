@@ -19,7 +19,10 @@ interface User {
 
 const users: User[] = []
 
-export const createUser = async (req: Request, res: Response) => {
+export const createUser = async (
+    req: express.Request,
+    res: express.Response,
+) => {
     const user = req.body as unknown as User
 
     if (!user.email) {
